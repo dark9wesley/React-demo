@@ -3,3 +3,19 @@
 .logo img{
     height: 50px;
 }
+
+.item{
+    margin-left:15px
+}
+
+.user_name{
+    margin-right: 15px;
+}
+
+.ant-layout-content{
+    overflow: hidden;
+}
+
+.ant-list.list{
+    border: 1px solid #eee;
+}

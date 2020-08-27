@@ -1,20 +1,17 @@
 import React from 'react';
 import Axios from 'axios';
 import './App.css';
-import ArticleList from './components/articlelist';
-import { Layout , Menu } from 'antd';
+import { Switch , Route } from 'react-router-dom';
+import { Layout } from 'antd';
 
-const { Header , Sider , Content } = Layout;
+import Home from './pages/home';
+import User from './pages/user';
+import Detail from './pages/detail';
+
+const { Header , Content } = Layout;
 
 Axios.defaults.baseURL = 'https://cnodejs.org/api/v1';
 
-const menuList = {
-  all:'全部',
-  good:'精华',
-  share:'分享',
-  ask:'问答',
-  job:'招聘'
-}
 
 class App extends React.Component{
 
@@ -27,28 +24,18 @@ class App extends React.Component{
               </div>
           </Header>
           <Layout>
-              <Sider width={200} style={{ background:'#fff' }}>
-                  <Menu
-                      theme='light'
-                      mode='vertical'
-                      defaultSelectedKeys={['all']}
-                      style={{lineHeight:'64px'}}
-                  >
-                      {
-                        Object.entries(menuList).map(item => {
-                        return <Menu.Item key={item[0]}>{item[1]}</Menu.Item>
-                        })
-                      }
-                  </Menu>
-              </Sider>
-              <Content
-                  style={{
-                    background:'#fff',
-                    border:'1px solid #eee'
-                  }}
-              >
-                  <ArticleList />
-              </Content>
+            <Content
+                style={{
+                  background:'#fff',
+                  padding:'0 40px'
+                }}
+            >   
+                <Switch>
+                    <Route exact={true} path='/:tab?' component={Home} />
+                    <Route exact={true} path='/detail/:id?' component={Detail} />
+                    <Route exact={true} path='/user/:userid?' component={User} />
+                </Switch>
+            </Content>
           </Layout>
       </Layout>
     )
