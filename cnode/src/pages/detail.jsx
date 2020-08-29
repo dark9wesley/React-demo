@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
+import DetailMain from '../components/detailmain';
+import DetailReply from '../components/detailreply';
+
 export default class Detail extends Component{
     state = {
         data:[]
@@ -14,10 +17,11 @@ export default class Detail extends Component{
     }
 
     render(){
-        // console.log(this.props.match.params);
-        console.log(this.state.data)
         return (
-            <div>详情页</div>
+            <div className='wrap'>
+                <DetailMain data={this.state.data} />
+                {this.state.data.replies?.length ? <DetailReply data={this.state.data.replies} /> : '' }
+            </div>
         )
     }
 } 

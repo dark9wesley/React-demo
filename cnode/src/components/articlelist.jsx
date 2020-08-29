@@ -61,7 +61,7 @@ export default class ArticleList extends Component{
                             >
                                 <List.Item.Meta 
                                     avatar={
-                                        <Link to={`/user/${item.author_id}`} >
+                                        <Link to={`/user/${item.author.loginname}`} >
                                             <Avatar src={item.author.avatar_url}/>
                                         </Link>
                                     }
@@ -79,10 +79,12 @@ export default class ArticleList extends Component{
                                     }
                                     description={
                                         <div>
-                                            <span className='user_name'>
+                                            <Link to={`/user/${item.author.loginname}`} className='user_name'>
                                                 {item.author.loginname}
+                                            </Link>
+                                            <span className='reply_time'>
+                                                最后回复时间：{fromNow(item.last_reply_at)}
                                             </span>
-                                            最后回复时间：{fromNow(item.last_reply_at)}
                                         </div>
                                     }
                                 />

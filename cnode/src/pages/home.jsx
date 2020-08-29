@@ -3,21 +3,7 @@ import { Row , Col } from 'antd';
 
 import ArticleList from '../components/articlelist';
 import ArticleMenu from '../components/articlelistmenu'
-
-const menuList = {
-    all:'全部',
-    good:'精华',
-    share:'分享',
-    ask:'问答',
-    job:'招聘'
-}
-
-const colorList = {
-    good:'volcano',
-    share:'blue',
-    ask:'gold',
-    job:'purple'
-}
+import { menuList , colorList } from '../utils/utils'
 
 export default class Home extends Component {
     render(){

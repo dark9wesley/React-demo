@@ -1,7 +1,8 @@
 @import '~antd/dist/antd.css';
 
 .logo img{
-    height: 50px;
+    height: 40px;
+    margin-left: 150px;
 }
 
 .item{
@@ -18,4 +19,47 @@
 
 .ant-list.list{
     border: 1px solid #eee;
+}
+
+.wrap{
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.title{
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.title .title_name{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.info{
+    font-size: 14px;
+    color: gray;
+    padding-top: 10px;
+}
+
+.info > *{
+    margin-right: 10px;
+}
+
+.content img{
+    max-width:900px;
+    display: block;
+    margin: 0 auto;
+}
+
+.ant-list.reply_list{
+    border: none;
+}
+
+.item img{
+    max-width:900px;
+    display: block;
+    margin: 0 auto;
 }

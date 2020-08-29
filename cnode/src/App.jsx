@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import './App.css';
-import { Switch , Route } from 'react-router-dom';
+import { Switch , Route , Link} from 'react-router-dom';
 import { Layout } from 'antd';
 
 import Home from './pages/home';
@@ -19,9 +19,11 @@ class App extends React.Component{
     return (
       <Layout>
           <Header className='header'>
-              <div className='logo'>
-                <img src="//static2.cnodejs.org/public/images/cnodejs_light.svg" alt=""/>
-              </div>
+              <Link to='/'>
+                  <div className='logo'>
+                    <img src="//static2.cnodejs.org/public/images/cnodejs_light.svg" alt=""/>
+                  </div>
+              </Link>
           </Header>
           <Layout>
             <Content
@@ -32,8 +34,8 @@ class App extends React.Component{
             >   
                 <Switch>
                     <Route exact={true} path='/:tab?' component={Home} />
-                    <Route exact={true} path='/detail/:id?' component={Detail} />
-                    <Route exact={true} path='/user/:userid?' component={User} />
+                    <Route path='/detail/:id?' component={Detail} />
+                    <Route path='/user/:loginname?' component={User} />
                 </Switch>
             </Content>
           </Layout>
