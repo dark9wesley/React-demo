@@ -5,6 +5,11 @@
     margin-left: 150px;
 }
 
+.main{
+        background:#fff;
+        padding:0 40px
+}
+
 .item{
     margin-left:15px
 }

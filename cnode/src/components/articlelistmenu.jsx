@@ -2,8 +2,6 @@ import React , { Component } from 'react';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 
-
-
 export default class ArticleMenu extends Component {
     
     state={
@@ -27,7 +25,6 @@ export default class ArticleMenu extends Component {
                 onSelect={({key})=>{
                     this.setState({tab:key})
                 }}
-                style={{border:'none',textAlign:'center'}}
             >
                 {
                     Object.entries(menuList).map(item => {

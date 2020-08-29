@@ -4,13 +4,10 @@ import './App.css';
 import { Switch , Route , Link} from 'react-router-dom';
 import { Layout } from 'antd';
 
-import Home from './pages/home';
-import User from './pages/user';
-import Detail from './pages/detail';
-
+import routes from './routes/index';
 const { Header , Content } = Layout;
 
-Axios.defaults.baseURL = 'https://cnodejs.org/api/v1';
+Axios.defaults.baseURL = 'https://cnodejs.org/api/v1';  //设置请求默认地址
 
 
 class App extends React.Component{
@@ -18,27 +15,24 @@ class App extends React.Component{
   render(){
     return (
       <Layout>
-          <Header className='header'>
+          <Header className='header'>    {/* 设置项目通用头部,主要包括logo */}
               <Link to='/'>
                   <div className='logo'>
                     <img src="//static2.cnodejs.org/public/images/cnodejs_light.svg" alt=""/>
                   </div>
               </Link>
           </Header>
-          <Layout>
-            <Content
-                style={{
-                  background:'#fff',
-                  padding:'0 40px'
-                }}
-            >   
-                <Switch>
-                    <Route exact={true} path='/:tab?' component={Home} />
-                    <Route path='/detail/:id?' component={Detail} />
-                    <Route path='/user/:loginname?' component={User} />
-                </Switch>
-            </Content>
-          </Layout>
+          <Content className='main'>    {/* 循环遍历路由配置。并根据不同的路由渲染不同的内容 */}
+              <Switch>
+                  {
+                    routes.map( item =>{
+                      return (
+                        <Route key={item.name} exact={item.exact} path={item.path} component={item.component} />
+                      )
+                    })
+                  }
+              </Switch>
+          </Content>
       </Layout>
     )
   }

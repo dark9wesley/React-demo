@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import Axios from 'axios';
-import { fromNow , locate } from 'silly-datetime'
+import { fromNow , locate } from 'silly-datetime';
 import { List , Avatar , Tag } from 'antd';
 import {Link} from 'react-router-dom';
 
